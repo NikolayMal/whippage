@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Contact</title>
+	<link rel="icon" type="image/x-icon" href="Images/wp.png"/>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Bootstrap CSS and JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+	
+	/*Makes the side links circular*/
+	.img-responsive {
+	border-radius: 50%;
+	}
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<header>
+<a href="whippage.html"><img id="logo" src="Images/wp.png"></a>
+<a href="whippage.html"><img id="logo" src="Images/wp.png"></a>
+<a href="whippage.html"><img id="logo" src="Images/wp.png"></a>
+<a href="whippage.html"><img id="logo" src="Images/wp.png"></a>
+<a href="whippage.html"><img id="logo" src="Images/wp.png"></a>
+<a href="whippage.html"><img id="logo" src="Images/wp.png"></a>
+<a href="whippage.html"><img id="logo" src="Images/wp.png"></a>
+</header>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="whippage.html">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Cars
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="newcar.html">New Cars</a></li>
+            <li><a href="oldcar.html">Old Cars</a></li>
+          </ul>
+        <li class="active"><a href="contact.html">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+</nav>
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+	<h3>Quick Links</h3>
+      <p><a href="oldcar.html"><img id="used" src="Images/usedcar.jpg" class="img-responsive">Used Cars</a></p>
+      <p><a href="newcar.html"><img id="new" src="Images/newcar.jpg" class="img-responsive">New Cars</a></p>
+    </div>
+	<img id="quest" src="Images/quest.jpg">
+	<h3>Contact Us</h3>
+	<p>If you have any questions about the cars or anything on the website please let us
+	know either below or you can contact us throught our email whippage@cars.ie. If you
+	feel like we can improve in anyway please say below. Thank you for your time.</p>
+	</div>
+	<div class="container">
+	<div class="form-group">
+  <label for="comment">Comment:</label>
+  <textarea class="form-control" rows="5" id="comment"></textarea>
+  <button type="submit" class="btn btn-default">Submit</button>
+</div>
+</div>
+</div>
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>
+</body>
+</html>
+	
+	
