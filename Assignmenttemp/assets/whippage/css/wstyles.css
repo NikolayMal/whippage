@@ -1,0 +1,59 @@
+.wbtn {
+  width: 150px;
+  height: 50px;
+  border: 1px solid #D4AF37;
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 0;
+  transition: 1s;
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wbtn::before, .wbtn::after {
+  position: absolute;
+  background: white;
+  z-index: -1;
+  transition: 1s;
+  content: '';
+}
+
+.wbtn::before {
+  height: 50px;
+  width: 130px;
+}
+
+.wbtn::after {
+  width: 150px;
+  height: 30px;
+}
+
+.wnoselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.wbtn:hover::before {
+  width: 0px;
+  background: #fff;
+}
+
+.wbtn:hover::after {
+  height: 0px;
+  background: #fff;
+}
+
+.wbtn:hover {
+  background: #fff;
+}
