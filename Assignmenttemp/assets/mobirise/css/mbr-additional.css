@@ -485,6 +485,9 @@ body {
 .text-black {
   color: #232323 !important;
 }
+.text-gold {
+    color: #D4AF37 !important;
+}
 a.text-primary:hover,
 a.text-primary:focus,
 a.text-primary.active {
