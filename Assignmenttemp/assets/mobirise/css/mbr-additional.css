@@ -1384,7 +1384,7 @@ background: linear-gradient(90deg, rgba(255,236,178,1) 44%, rgba(243,234,205,1) 
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: white;
+  background-color: black;
   margin-right: 0.5rem;
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -1392,7 +1392,7 @@ background: linear-gradient(90deg, rgba(255,236,178,1) 44%, rgba(243,234,205,1) 
   width: 2.5rem;
 }
 .cid-sgJnSQFRbe .mbr-iconfont {
-  color: black;
+  color: #D4AF37;
 }
 @media (max-width: 991px) {
   .cid-sgJnSQFRbe div > *:last-child {
