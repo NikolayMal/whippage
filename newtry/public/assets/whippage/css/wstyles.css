@@ -1,0 +1,210 @@
+.wbtn {
+  width: 150px;
+  height: 50px;
+  border: 1px solid #D4AF37;
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 0;
+  transition: 1s;
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wbtn::before, .wbtn::after {
+  position: absolute;
+  background: white;
+  z-index: -1;
+  transition: 1s;
+  content: '';
+}
+
+.wbtn::before {
+  height: 50px;
+  width: 130px;
+}
+
+.wbtn::after {
+  width: 150px;
+  height: 30px;
+}
+
+.wnoselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.wbtn:hover::before {
+  width: 0px;
+  background: #fff;
+}
+
+.wbtn:hover::after {
+  height: 0px;
+  background: #fff;
+}
+
+.wbtn:hover {
+  background: #fff;
+}
+
+.filterDiv {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+#myBtnContainer {
+	width: 50%;
+    display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: justify;
+}
+
+.fbtn {
+  width: 150px;
+  height: 50px;
+  border: 1px solid black;
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 0;
+  transition: 1s;
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+
+}
+
+.fbtn::before, .fbtn::after {
+  position: absolute;
+  background: white;
+  z-index: -1;
+  transition: 1s;
+  content: '';
+}
+
+.fbtn::before {
+  height: 50px;
+  width: 130px;
+}
+
+.fbtn::after {
+  width: 150px;
+  height: 30px;
+}
+
+.fnoselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.fbtn:hover::before {
+  width: 0px;
+  background: white;
+}
+
+.wbtn:hover::after {
+  height: 0px;
+  background: #fff;
+}
+
+.fbtn:hover {
+  background: #D4AF37;
+}
+
+.fbtn:focus, .fbtn:active {
+	background-color: #D4AF37;
+	border: 1px solid black;
+}
+
+
+div.titletext {
+background-color: #ffffff;
+}
+div.titletext p {
+text-align: center;
+font-family: Arial;
+font-size: 48px;
+font-style: normal;
+font-weight: normal;
+text-decoration: underline;
+text-transform: none;
+font-variant: small-caps;
+color: #d4af37;
+background-color: #ffffff;
+}
+
+.cbtn {
+  width: 150px;
+  height: 50px;
+  border: 3px solid #D4AF37;
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 0;
+  transition: 1s;
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.cbtn::before, .cbtn::after {
+  position: absolute;
+  background: white;
+  z-index: -1;
+  transition: 1s;
+  content: '';
+}
+
+.cbtn::before {
+  height: 50px;
+  width: 130px;
+}
+
+.cbtn::after {
+  width: 150px;
+  height: 30px;
+}
+
+.cbtn:hover::before {
+  width: 0px;
+}
+
+.cbtn:hover::after {
+  height: 0px;
+  background: rgb(243,234,205);
+}
+
+.cbtn:hover {
+  background: rgb(243,234,205);
+}
