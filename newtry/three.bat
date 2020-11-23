@@ -1,1 +1,0 @@
-nodemon --use_strict app.js
