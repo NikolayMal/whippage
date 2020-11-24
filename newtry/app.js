@@ -51,6 +51,12 @@ app.get('/login', (req, res) => {
     })
 })
 
+app.get('/profile', (req, res) => {
+    res.sendFile('profile.html', {
+        root: path.join(__dirname, './')
+    })
+})
+
 /*LOGIN CODE*/
 var account_activation_required = false;
 
@@ -61,7 +67,7 @@ app.get('/', function(request, response) {
 var connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'root',
-	password : '271172',
+	password : '1409',
 	database : 'nodelogin'
 });
 

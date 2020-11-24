@@ -796,6 +796,7 @@ a {
   overflow: hidden;
   transform: scale(0, 1);
   transition: all 0.25s ease-in-out;
+  
 }
 .cid-s48OLK6784 .dropdown-menu {
   padding: 0;
@@ -1035,6 +1036,7 @@ a {
   transition: all .2s;
   position: relative;
   align-self: center;
+  color: white;
 }
 .cid-s48OLK6784 button.navbar-toggler .hamburger span {
   position: absolute;

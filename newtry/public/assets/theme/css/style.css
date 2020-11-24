@@ -650,6 +650,14 @@ nav .mbr-section-btn {
   -webkit-justify-content: space-between;
 }
 
+.notMember {
+	display: show;
+}
+
+.isMember {
+	display: none;
+}
+
 .navbar-collapse {
   -webkit-flex-basis: 100%;
   -webkit-flex-grow: 1;
