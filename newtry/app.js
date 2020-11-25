@@ -31,7 +31,7 @@ app.get('/homepage', (req, res) => {
 
 /*
 app.get('/cars', (req, res) => {
-    res.sendFile('cars.html', {
+    res.senFile('cars.html', {
         root: path.join(__dirname, './')
     })
 })
