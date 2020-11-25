@@ -56,6 +56,12 @@ app.get('/login', (req, res) => {
     })
 })
 
+app.get('/edit_profile', (req, res) => {
+    res.sendFile('profile-edit.html', {
+        root: path.join(__dirname, './')
+    })
+})
+
 
 
 /*
@@ -78,7 +84,7 @@ app.get('/cars', function(request, response) {
 var connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'root',
-	password : '1409',
+	password : '271172',
 	database : 'nodelogin'
 });
 
