@@ -78,7 +78,7 @@ app.get('/cars', function(request, response) {
 var connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'root',
-	password : '271172',
+	password : '1409',
 	database : 'nodelogin'
 });
 
