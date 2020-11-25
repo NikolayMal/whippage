@@ -10,6 +10,7 @@ var cookieParser = require('cookie-parser');
 /*LOGIN CODE*/
 
 
+
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -21,17 +22,20 @@ var secret_key = 'your secret key';
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'static')));
 
+
 app.get('/homepage', (req, res) => {
     res.sendFile('index.html', {
         root: path.join(__dirname, './')
     })
 })
 
+/*
 app.get('/cars', (req, res) => {
     res.sendFile('cars.html', {
         root: path.join(__dirname, './')
     })
 })
+*/
 
 app.get('/faqs', (req, res) => {
     res.sendFile('faqs.html', {
@@ -45,33 +49,40 @@ app.get('/register', (req, res) => {
     })
 })
 
+
 app.get('/login', (req, res) => {
     res.sendFile('login.html', {
         root: path.join(__dirname, './')
     })
 })
 
-app.get('/profile', (req, res) => {
-    res.sendFile('profile.html', {
+
+
+/*
+app.get('/layout', (req, res) => {
+    res.sendFile('layout.html', {
         root: path.join(__dirname, './')
     })
 })
+*/
 
 /*LOGIN CODE*/
 var account_activation_required = false;
 
-app.get('/', function(request, response) {
+/*
+app.get('/cars', function(request, response) {
 	response.render('index.html');
 });
+*/
 
 var connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'root',
-	password : '1409',
+	password : '271172',
 	database : 'nodelogin'
 });
 
-nunjucks.configure('views', {
+nunjucks.configure('', {
   	autoescape: true,
   	express   : app
 });
@@ -83,7 +94,6 @@ app.use(session({
 }));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'static')));
 app.use(cookieParser());
 
 app.post('/', function(request, response) {
@@ -245,9 +255,23 @@ app.get('/profile', function(request, response) {
 		});
 	} else {
 		// Redirect to login page
-		response.redirect('/');
+		response.redirect('/login');
 	}
 });
+
+
+app.get('/cars', function(request, response) {
+	// Check if user is logged in
+	if (request.session.loggedin) {
+		response.sendFile('cars.html', {
+        root: path.join(__dirname, './')
+		});
+	} else {
+		// Redirect to login page
+		response.redirect('/login');
+	}
+});
+
 
 app.get('/edit_profile', function(request, response) {
 	// Check if user is logged in
@@ -290,12 +314,16 @@ app.post('/edit_profile', function(request, response) {
 });
 
 app.get('/logout', function(request, response) {
-	// Destroy session data
-	request.session.destroy();
-	// Clear remember me cookie
-	response.clearCookie('rememberme');
-	// Redirect to login page
-	response.redirect('/');
+	if (request.session.loggedin) {
+		// Destroy session data
+		request.session.destroy();
+		// Clear remember me cookie
+		response.clearCookie('rememberme');
+		// Redirect to login page
+		response.redirect('homepage');
+	} else {
+		response.redirect('/login');
+	}
 });
 /*LOGIN CODE*/
 

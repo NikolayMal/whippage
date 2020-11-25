@@ -10,7 +10,7 @@ $(document).ready(function() {
                 success: function(data) {
                     if (data == "Success") {
 						//isUserLoggedIn();
-                        window.location.href = "homepage";
+                        window.location.href = "cars";
                     } else {
                         $(".msg").text(data);
                     }
