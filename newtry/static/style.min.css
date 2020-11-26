@@ -189,14 +189,16 @@ body.loggedin {
     text-decoration: none;
     border: 0;
     cursor: pointer;
-    color: #fff;
-    background-color: #3274d6;
+    color: #d4af31;
+    background-color: black;
     margin: 15px 5px 0 0;
     padding: 10px 15px;
 }
 .content > div a:hover,
 .content > div input[type="submit"]:hover {
-    background-color: #2868c7;
+    background-color: darkGray;
+	color: white;
+	
 }
 .content form label {
     display: block;
