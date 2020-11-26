@@ -50,18 +50,22 @@ app.get('/register', (req, res) => {
 })
 
 
-app.get('/login', (req, res) => {
-    res.sendFile('login.html', {
+
+
+
+app.get('/loginpopup', (req, res) => {
+    res.sendFile('loginpopup.html', {
         root: path.join(__dirname, './')
     })
 })
 
+/*
 app.get('/edit_profile', (req, res) => {
     res.sendFile('profile-edit.html', {
         root: path.join(__dirname, './')
     })
 })
-
+*/
 
 
 /*
@@ -289,7 +293,7 @@ app.get('/edit_profile', function(request, response) {
 		});
 	} else {
 		// Redirect to login page
-		response.redirect('/');
+		response.redirect('homepage');
 	}
 });
 
@@ -315,7 +319,7 @@ app.post('/edit_profile', function(request, response) {
 		}
 	} else {
 		// Redirect to login page
-		response.redirect('/');
+		response.redirect('homepage');
 	}
 });
 
@@ -323,12 +327,23 @@ app.get('/logout', function(request, response) {
 	if (request.session.loggedin) {
 		// Destroy session data
 		request.session.destroy();
-		// Clear remember me cookie
-		response.clearCookie('rememberme');
-		// Redirect to login page
-		response.redirect('homepage');
+		response.sendFile('logoutred.html', {
+        root: path.join(__dirname, './')
+    })
 	} else {
-		response.redirect('/login');
+		response.redirect('/homepage');
+	}
+});
+
+app.get('/login', function(request, response) {
+	if (request.session.loggedin) {
+		response.sendFile('loginpopup.html', {
+        root: path.join(__dirname, './')
+    })
+	} else {
+    response.sendFile('login.html', {
+        root: path.join(__dirname, './')
+    })
 	}
 });
 /*LOGIN CODE*/
