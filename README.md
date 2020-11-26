@@ -1,90 +1,63 @@
-# Welcome to GitHub
+__________
+1. Deployment
 
-Welcome to GitHub—where millions of developers work together on software. Ready to get started? Let’s learn how this all works by building and publishing your first GitHub Pages website!
+To deploy this application, the following node modules are required:
 
-## Repositories
+    mysql
+    express-session
+    body-parser 
+    nunjucks
+    nodemailer
+    uuid
+    crypto
+    cookie-parser
+    express
+    nodemon
 
-Right now, we’re in your first GitHub **repository**. A repository is like a folder or storage space for your project. Your project's repository contains all its files such as code, documentation, images, and more. It also tracks every change that you—or your collaborators—make to each file, so you can always go back to previous versions of your project if you make any mistakes.
+You can install all the modules in a single command:
 
-This repository contains three important files: The HTML code for your first website on GitHub, the CSS stylesheet that decorates your website with colors and fonts, and the **README** file. It also contains an image folder, with one image file.
+    npm install mysql express-session body-parser nunjucks nodemailer uuid crypto cookie-parser express nodemon
 
-## Describe your project
+__________
+2. Database
+To re-create the database from scratch, there is a SQL file inside the utils folder, containing the commands he tables.
 
-You are currently viewing your project's **README** file. **_README_** files are like cover pages or elevator pitches for your project. They are written in plain text or [Markdown language](https://guides.github.com/features/mastering-markdown/), and usually include a paragraph describing the project, directions on how to use it, who authored it, and more.
+Obs. 1: if you are using a database other than SQLite, you should include a file containing the code used to generate
+the database. In addition, you should point where the database connection is set in your code in case someone else 
+has to alter that connection.
 
-[Learn more about READMEs](https://help.github.com/en/articles/about-readmes)
+In the root folder there is a file called nodelogin.sql. This is the code generated for the database as we used MySQL 
+instead of SQLite. The point in where the data base connection is set in our code in the file app.js
 
-## Your first website
+__________
+3. Run
 
-**GitHub Pages** is a free and easy way to create a website using the code that lives in your GitHub repositories. You can use GitHub Pages to build a portfolio of your work, create a personal website, or share a fun project that you coded with the world. GitHub Pages is automatically enabled in this repository, but when you create new repositories in the future, the steps to launch a GitHub Pages website will be slightly different.
+To run the server, you write 'nodemon --use_strict app.js' (without quotations). 
+	-Common Errors:
+		-Port is already in use. To change this, open the 'app.js' file in a text editor such as
+		notepad++ and find the line which reads: "const port = 3001;" and increment the number up or down by 1.
 
-[Learn more about GitHub Pages](https://pages.github.com/)
+		-Connection to the sql database: You must change the password to the password you have in your own
+		MySql workbench. If necessary, change the root name also. This information can be found on line 88
+		of the 'app.js' file.
 
-## Rename this repository to publish your site
+__________
+4. User and password
 
-We've already set-up a GitHub Pages website for you, based on your personal username. This repository is called `hello-world`, but you'll rename it to: `username.github.io`, to match your website's URL address. If the first part of the repository doesn’t exactly match your username, it won’t work, so make sure to get it right.
+The app has a user called 'test' with a password defined as 'test' (without quotations). There is also a file
+in the root folder to add a new user/password combination to the database using the crypto module to generate 
+a hash for the password. You should run this file from inside its own folder.
 
-Let's get started! To update this repository’s name, click the `Settings` tab on this page. This will take you to your repository’s settings page. 
+__________
+5. Organization and Structure
 
-![repo-settings-image](https://user-images.githubusercontent.com/18093541/63130482-99e6ad80-bf88-11e9-99a1-d3cf1660b47e.png)
+The code is structured in the following way:
 
-Under the **Repository Name** heading, type: `username.github.io`, where username is your username on GitHub. Then click **Rename**—and that’s it. When you’re done, click your repository name or browser’s back button to return to this page.
-
-<img width="1039" alt="rename_screenshot" src="https://user-images.githubusercontent.com/18093541/63129466-956cc580-bf85-11e9-92d8-b028dd483fa5.png">
-
-Once you click **Rename**, your website will automatically be published at: https://your-username.github.io/. The HTML file—called `index.html`—is rendered as the home page and you'll be making changes to this file in the next step.
-
-Congratulations! You just launched your first GitHub Pages website. It's now live to share with the entire world
-
-## Making your first edit
-
-When you make any change to any file in your project, you’re making a **commit**. If you fix a typo, update a filename, or edit your code, you can add it to GitHub as a commit. Your commits represent your project’s entire history—and they’re all saved in your project’s repository.
-
-With each commit, you have the opportunity to write a **commit message**, a short, meaningful comment describing the change you’re making to a file. So you always know exactly what changed, no matter when you return to a commit.
-
-## Practice: Customize your first GitHub website by writing HTML code
-
-Want to edit the site you just published? Let’s practice commits by introducing yourself in your `index.html` file. Don’t worry about getting it right the first time—you can always build on your introduction later.
-
-Let’s start with this template:
-
-```
-<p>Hello World! I’m [username]. This is my website!</p>
-```
-
-To add your introduction, copy our template and click the edit pencil icon at the top right hand corner of the `index.html` file.
-
-<img width="997" alt="edit-this-file" src="https://user-images.githubusercontent.com/18093541/63131820-0794d880-bf8d-11e9-8b3d-c096355e9389.png">
-
-
-Delete this placeholder line:
-
-```
-<p>Welcome to your first GitHub Pages website!</p>
-```
-
-Then, paste the template to line 15 and fill in the blanks.
-
-<img width="1032" alt="edit-githuboctocat-index" src="https://user-images.githubusercontent.com/18093541/63132339-c3a2d300-bf8e-11e9-8222-59c2702f6c42.png">
-
-
-When you’re done, scroll down to the `Commit changes` section near the bottom of the edit page. Add a short message explaining your change, like "Add my introduction", then click `Commit changes`.
-
-
-<img width="1030" alt="add-my-username" src="https://user-images.githubusercontent.com/18093541/63131801-efbd5480-bf8c-11e9-9806-89273f027d16.png">
-
-Once you click `Commit changes`, your changes will automatically be published on your GitHub Pages website. Refresh the page to see your new changes live in action.
-
-:tada: You just made your first commit! :tada:
-
-## Extra Credit: Keep on building!
-
-Change the placeholder Octocat gif on your GitHub Pages website by [creating your own personal Octocat emoji](https://myoctocat.com/build-your-octocat/) or [choose a different Octocat gif from our logo library here](https://octodex.github.com/). Add that image to line 12 of your `index.html` file, in place of the `<img src=` link.
-
-Want to add even more code and fun styles to your GitHub Pages website? [Follow these instructions](https://github.com/github/personal-website) to build a fully-fledged static website.
-
-![octocat](./images/create-octocat.png)
-
-## Everything you need to know about GitHub
-
-Getting started is the hardest part. If there’s anything you’d like to know as you get started with GitHub, try searching [GitHub Help](https://help.github.com). Our documentation has tutorials on everything from changing your repository settings to configuring GitHub from your command line.
+	-The main routes and configurations for the server, authentication and sessions are in the app.js file, included in 
+	 the root folder.
+	-The documents/pages for the app are also included in the root folder, each named as filename.html. The JS files to 
+	 control the behavior of the documents are located inside the public -> respected folder -> js folder. Each of these 
+	 JS files are named after the task that the desired behavior is adding to the app.
+	-In the root folder there is a node_modules folder which contains all the modules necessary for nodejs to work.
+	-There is a static folder is used to validate if the user is logged in. Also in the root folder, the json files 
+	 are there allow us to use all of our modules in the appjs.
