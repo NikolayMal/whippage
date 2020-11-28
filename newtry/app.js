@@ -4,12 +4,9 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var nunjucks = require('nunjucks');
 var nodemailer = require('nodemailer');
-var uuidv1 = require('uuid/v1');
 var crypto = require('crypto');
 var cookieParser = require('cookie-parser');
 /*LOGIN CODE*/
-
-
 
 const express = require('express');
 const app = express();
@@ -29,14 +26,6 @@ app.get('/homepage', (req, res) => {
     })
 })
 
-/*
-app.get('/cars', (req, res) => {
-    res.senFile('cars.html', {
-        root: path.join(__dirname, './')
-    })
-})
-*/
-
 app.get('/faqs', (req, res) => {
     res.sendFile('faqs.html', {
         root: path.join(__dirname, './')
@@ -49,46 +38,19 @@ app.get('/register', (req, res) => {
     })
 })
 
-
-
-
-
 app.get('/loginpopup', (req, res) => {
     res.sendFile('loginpopup.html', {
         root: path.join(__dirname, './')
     })
 })
 
-/*
-app.get('/edit_profile', (req, res) => {
-    res.sendFile('profile-edit.html', {
-        root: path.join(__dirname, './')
-    })
-})
-*/
-
-
-/*
-app.get('/layout', (req, res) => {
-    res.sendFile('layout.html', {
-        root: path.join(__dirname, './')
-    })
-})
-*/
-
 /*LOGIN CODE*/
 var account_activation_required = false;
-
-/*
-app.get('/cars', function(request, response) {
-	response.render('index.html');
-});
-*/
 
 var connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'root',
-	password : '1409',
+	password : '271172',
 	database : 'nodelogin'
 });
 
@@ -167,40 +129,6 @@ app.post('/register', function(request, response) {
 				// Username validation, must be numbers and characters
 				response.send('Username must contain only characters and numbers!');
 				response.end();
-			} else if (account_activation_required) {
-				// Change the username and passowrd below to your email and pass, the current mail host is set to gmail but you can change that if you want.
-				var transporter = nodemailer.createTransport({
-		            host: 'smtp.gmail.com',
-		            port: 465,
-		            secure: true,
-		            auth: {
-		                user: 'xxxxxx@xxxxxx.xxx',
-		                pass: 'xxxxxx'
-		            }
-		        });
-				// Generate a random unique ID
-				var activation_code = uuidv1();
-				// Change the below domain to your domain
-				var activate_link = 'http://localhost:3001/activate/' + email + '/' + activation_code;
-				// Change the below mail options
-		        var mailOptions = {
-		            from: '"Your Name / Business name" <xxxxxx@gmail.com>',
-		            to: email,
-		            subject: 'Account Activation Required',
-		            text: 'Please click the following link to activate your account: ' + activate_link,
-		            html: '<p>Please click the following link to activate your account: <a href="' + activate_link + '">' + activate_link + '</a></p>'
-		        };
-				// Insert account with activation code
-				connection.query('INSERT INTO accounts VALUES (NULL, ?, ?, ?, ?, "")', [username, hashed_password, email, activation_code], function(error, results, fields) {
-					transporter.sendMail(mailOptions, function(error, info) {
-			            if (error) {
-			                return console.log(error);
-			            }
-			            console.log('Message %s sent: %s', info.messageId, info.response);
-			        });
-					response.send('You have successfully registered!');
-					response.end();
-				});
 			} else {
 				// Insert account with no activation code
 				connection.query('INSERT INTO accounts VALUES (NULL, ?, ?, ?, "", "")', [username, hashed_password, email], function(error, results, fields) {
@@ -214,22 +142,6 @@ app.post('/register', function(request, response) {
 		response.send('Please complete the registration form!');
 		response.end();
 	}
-});
-
-app.get('/activate/:email/:code', function(request, response) {
-	// Check if the email and activation code match in the database
-	connection.query('SELECT * FROM accounts WHERE email = ? AND activation_code = ?', [request.params.email, request.params.code], function(error, results, fields) {
-		if (results.length > 0) {
-			// Email and activation exist, update the activation code to "activated"
-			connection.query('UPDATE accounts SET activation_code = "activated" WHERE email = ? AND activation_code = ?', [request.params.email, request.params.code], function(error, results, fields) {
-				response.send('Your account has been activated!');
-				response.end();
-			});
-		} else {
-			response.send('Incorrect email/activation code!');
-			response.end();
-		}
-	});
 });
 
 app.get('/homepage', function(request, response) {
@@ -269,7 +181,6 @@ app.get('/profile', function(request, response) {
 	}
 });
 
-
 app.get('/cars', function(request, response) {
 	// Check if user is logged in
 	if (request.session.loggedin) {
@@ -281,7 +192,6 @@ app.get('/cars', function(request, response) {
 		response.redirect('/login');
 	}
 });
-
 
 app.get('/edit_profile', function(request, response) {
 	// Check if user is logged in
