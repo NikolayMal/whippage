@@ -64,6 +64,7 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true
 }));
+
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -141,29 +142,6 @@ app.post('/register', function(request, response) {
 		// Form is not complete...
 		response.send('Please complete the registration form!');
 		response.end();
-	}
-});
-
-app.get('/homepage', function(request, response) {
-	// Check if user is logged in
-	if (request.session.loggedin) {
-		// Render home page
-		response.render('index.html', { username: request.session.username });
-	} else if (request.cookies.rememberme) {
-		// if the remember me cookie exists check if an account has the same value in the database
-		connection.query('SELECT * FROM accounts WHERE rememberme = ?', [request.cookies.rememberme], function(error, results, fields) {
-			if (results.length > 0) {
-				// remember me cookie matches, keep the user loggedin and update session variables
-				request.session.loggedin = true;
-				request.session.username = results[0].username;
-				response.render('index.html', { username: results[0].username });
-			} else {
-				response.redirect('/');
-			}
-		});
-	} else {
-		// Redirect to login page
-		response.redirect('/');
 	}
 });
 
